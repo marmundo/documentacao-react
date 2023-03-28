@@ -1,4 +1,4 @@
-# Documentacao-react
+# Documentacao React
 Anotações de estudo de React
 
 ## Criando primeira aplicacao react
