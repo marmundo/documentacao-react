@@ -57,3 +57,21 @@ const CampoTexto = (props) => {
 
 export default CampoTexto
 ```
+## Utilizando componentes de componentes
+Um fomrulario é feito de vários campos. Então podemos ter um componente formulario com varios componentes campos. Segue exemplo de código
+```jsx
+import CampoTexto from "../CampoTexto"
+import './Formulario.css'
+
+const Formulario = () => {
+  return (
+    <section className="formulario">
+      <form>
+        <CampoTexto label="Nome" />
+        <CampoTexto label="Endereço" />
+      </form>
+    </section>
+  )
+}
+export default Formulario
+```
