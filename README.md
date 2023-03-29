@@ -75,3 +75,24 @@ const Formulario = () => {
 }
 export default Formulario
 ```
+
+## Utilizando atributos aninhados
+
+Você pode passar valores de atributos para um componente React passando como componentes filhos de componente como se fosse em elementos html.
+Desta forma, pode ser passados outros componentes, mídias e etc como atributos ao invés de apenas texto.
+Veja o exemplo abaixo.
+
+```html
+<Botao>
+  Clique Aqui
+</Botao>
+```
+```jsx
+const Botao = (props) => {
+  return (
+      <button>
+        {props.children}
+      </button>
+  )
+}
+```
