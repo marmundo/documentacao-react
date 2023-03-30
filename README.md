@@ -98,6 +98,25 @@ const Botao = (props) => {
 }
 ```
 
+## Geração de elementos em componentes
+Normalmente é necessário gerar elementos em um componente baseado em itens, por exemplo um combo-box, uma tabela, etc.
+Para isso é necessário usar um array de items e usar a função map para gerar os elementos baseado nesta lista. Ver exemplo abaixo.
+
+```jsx
+ const times=["A","B", "C"]
+ //Observe que a variavel times é passada como atributo items no componente ListaSuspensa
+ <ListaSuspensa label="Time" items={times} aoAlterado={(time)=>setTime(time)}/>
+
+//Os itens da lista suspensa é gerado baseado nos itens que pertence a variavel props
+<select name="select" onChange={aoSelecionado}>
+  {props.items.map((item) =>
+    <option value={item}>{item}</option>
+  )}
+</select>
+
+```
+
+
 # Controle de Estados
 
 O React utiliza os estados para manter o ciclo de vida de atualização dos valores e comportamento dos componentes React.
