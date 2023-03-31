@@ -1,13 +1,13 @@
 import './Card.css';
-const Card = (props) => {
+const Card = ({nome,endereco,imagem}) => {
   return (
     <div className='card'>
       <div className="cabecalho">
-        <img src={props.imagem} alt='imagem'/>
+        <img src={imagem} alt='imagem'/>
       </div>
       <div className='rodape'>
-        <h4>{props.nome}</h4>
-        <h5>{props.endereco}</h5>
+        <h4>{nome}</h4>
+        <h5>{endereco}</h5>
       </div>
     </div>
   )
