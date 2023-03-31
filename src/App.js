@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Banner />
       <Formulario times={times} aoColaboradorCadastrado={colaborador => salvarColaborador(colaborador)} />
-      {times.map((time) => {
+      {times.map(time => {
         let colaboradoresPorTime = colaboradores.filter(item => item.time === time)
         return < Time key={time} time={time} membros={colaboradoresPorTime} />
       }

@@ -6,8 +6,8 @@ const Card = ({nome,endereco,imagem}) => {
         <img src={imagem} alt='imagem'/>
       </div>
       <div className='rodape'>
-        <h4>{nome}</h4>
-        <h5>{endereco}</h5>
+        <p id='nome'>{nome}</p>
+        <p id='endereco'>{endereco}</p>
       </div>
     </div>
   )
