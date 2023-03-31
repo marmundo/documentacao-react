@@ -15,7 +15,12 @@ function App() {
     <div className="App">
       <Banner />
       <Formulario times={times} aoColaboradorCadastrado={colaborador => salvarColaborador(colaborador)} />
-      {times.map((time)=><Time key={time} time={time} membros={colaboradores.filter(item=>item.time===time)} />)}      
+      {times.map((time) => {
+        let colaboradoresPorTime=colaboradores.filter(item=>item.time===time)
+        if(colaboradoresPorTime.length>0)
+          return < Time key={time} time={time} membros={colaboradoresPorTime} />
+      }
+      )}
     </div>
   )
 }
