@@ -3,12 +3,12 @@ const Rodape = () => {
   return (
     <section className='rodape'>
       <div className='redeSocial'>
-      <img src="/imagens/fb.png"/>
-      <img src="/imagens/tw.png"/>
-      <img src="/imagens/ig.png"/>
+      <img src="/imagens/fb.png" alt="facebook"/>
+      <img src="/imagens/tw.png"alt="twitter"/>
+      <img src="/imagens/ig.png" alt="instagram"/>
       </div>
       <div className='logo'>
-        <img src="/imagens/logo.png"/>
+        <img src="/imagens/logo.png" alt="logo"/>
       </div>
       <div className='texto'>
         <p>Desenvolvido por Marcelo Damasceno</p>
