@@ -1,0 +1,45 @@
+.card {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card .cabecalho {
+  background-color:  #8c8888;
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.card img {
+  width: 50%;
+  border-radius: 50%;
+  position: relative;
+  bottom: -50px;
+}
+
+.card .rodape {
+  background: #FFFFFF;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 0px 0px 10px 10px;
+  padding-top: 15%;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items:  center;
+}
+
+.card .rodape h4 {
+  color: #6278F7;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
+  margin-bottom: 0.5%;
+}
+
+.card .rodape h5 {
+  font-size: 18px;
+  line-height: 22px;
+  color: #212121;
+}
