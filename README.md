@@ -185,3 +185,11 @@ const [nome,setNome]=useState()
   )
 }
 ```
+# Renderização Condicional
+O React renderiza condicionalmente usando uma expressao ternaria. P.ex
+
+```jsx
+let itens=[]
+//Se o número de itens do array for maior que zero, o React renderiza <Componente/>. Isso através do operador lógico &&
+items.lenght>0 && <Component/>
+```
