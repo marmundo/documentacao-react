@@ -5,14 +5,21 @@ import ListaSuspensa from "../ListaSuspensa";
 import './Formulario.css';
 
 const Formulario = (props) => {
-  const [nome, setNome] = useState('Marcelo');
-  const [endereco, setEndereco] = useState('Endereço');
-  const [time, setTime] = useState('[A]');
+  const [nome, setNome] = useState('');
+  const [endereco, setEndereco] = useState('');
+  const [time, setTime] = useState('');
 
-  
+  const limparCampos = () => {
+    setNome('')
+    setEndereco('')
+    setTime('')
+  }
   const aoSalvar = (evento) => {
     evento.preventDefault()
-    props.aoColaboradorCadastrado({nome,endereco,time})
+    let colaborador={ nome, endereco, time }
+   
+    props.aoColaboradorCadastrado(colaborador)
+    limparCampos()
   }
   return (
     <section className="formulario" onSubmit={aoSalvar}>
@@ -20,7 +27,12 @@ const Formulario = (props) => {
         <h1> Digite os Dados do Membro da sua Equipe</h1>
         <CampoTexto label="Nome" valor={nome} aoAlterado={nome => { setNome(nome) }} />
         <CampoTexto label="Endereço" valor={endereco} aoAlterado={endereco => { setEndereco(endereco) }} />
-        <ListaSuspensa label="Time" items={props.times} aoAlterado={(time)=>setTime(time)}/>
+        <ListaSuspensa
+        obrigatorio={true}
+          label="Time"
+          items={props.times}
+          aoAlterado={(valor) => setTime(valor)}
+          valor={time} />
         <Botao>
           Salvar
         </Botao>
