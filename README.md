@@ -1,70 +1,187 @@
-# Getting Started with Create React App
+# Documentacao React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Anotações de estudo de React
 
-## Available Scripts
+# Introdução
 
-In the project directory, you can run:
+## Criando primeira aplicacao react
 
-### `npm start`
+`npx create-react-app <nome-do-projeto>`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Executando projeto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+cd nome-do-projeto
+npm start
+```
 
-### `npm test`
+## Pastas com assets ( conteúdo estatico)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Pasta public
 
-### `npm run build`
+# Criando seu primeiro componente React
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Por exemplo criar componente Banner
+Criar pasta dentro de src
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+componentes/Banner/Banner.js
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Exemplo de componente React
 
-### `npm run eject`
+```jsx
+import "./Banner.css";
+function Banner() {
+  return <img />;
+}
+export default Banner;
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Adicionando arquivo CSS ao Componente
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Criar arquivo CSS com o mesmo nome do componente
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+componentes/Banner/Banner.css
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Exemplo de CSS
 
-## Learn More
+```css
+.banner {
+  backgroud-color: #fff;
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+.banner img {
+  max-width: 100%;
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Utilizando propriedades nos componentes
 
-### Code Splitting
+Exemplo de arquivo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```jsx
+const CampoTexto = (props) => {
+  return (
+    <div className="campo-texto">
+      <label>{props.label}</label>
+      <input placeholder={props.placeholder} />
+    </div>
+  );
+};
 
-### Analyzing the Bundle Size
+export default CampoTexto;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Utilizando componentes de componentes
 
-### Making a Progressive Web App
+Um fomrulario é feito de vários campos. Então podemos ter um componente formulario com varios componentes campos. Segue exemplo de código
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```jsx
+import CampoTexto from "../CampoTexto";
+import "./Formulario.css";
 
-### Advanced Configuration
+const Formulario = () => {
+  return (
+    <section className="formulario">
+      <form>
+        <CampoTexto label="Nome" />
+        <CampoTexto label="Endereço" />
+      </form>
+    </section>
+  );
+};
+export default Formulario;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Utilizando atributos aninhados
 
-### Deployment
+Você pode passar valores de atributos para um componente React passando como componentes filhos de componente como se fosse em elementos html.
+Desta forma, pode ser passados outros componentes, mídias e etc como atributos ao invés de apenas texto.
+Veja o exemplo abaixo.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```html
+<Botao> Clique Aqui </Botao>
+```
 
-### `npm run build` fails to minify
+```jsx
+const Botao = (props) => {
+  return <button>{props.children}</button>;
+};
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Geração de elementos em componentes
+
+Normalmente é necessário gerar elementos em um componente baseado em itens, por exemplo um combo-box, uma tabela, etc.
+Para isso é necessário usar um array de items e usar a função map para gerar os elementos baseado nesta lista. Ver exemplo abaixo.
+
+```jsx
+ const times=["A","B", "C"]
+ //Observe que a variavel times é passada como atributo items no componente ListaSuspensa
+ <ListaSuspensa label="Time" items={times} aoAlterado={(time)=>setTime(time)}/>
+
+//Os itens da lista suspensa é gerado baseado nos itens que pertence a variavel props
+<select name="select" onChange={aoSelecionado}>
+  {props.items.map((item) =>
+    <option value={item}>{item}</option>
+  )}
+</select>
+
+```
+
+# Controle de Estados
+
+O React utiliza os estados para manter o ciclo de vida de atualização dos valores e comportamento dos componentes React.
+
+Existe um hook chamado de useState que é utilizado como função fornecida pelo React para ter controle das informações/componentes que interagem com o usuário.
+
+Abaixo um trecho de código com um componente 'Campo de Texto' com o valor do input sendo controlado pelo hook useState.
+
+```js
+const CampoTexto = (props) => {
+  const [valor, setValor] = useState();
+
+  const aoDigitado = (evento) => {
+    setValor(evento.target.value);
+  };
+  return (
+    <div className="campo-texto">
+      <label>{props.label}</label>
+      <input
+        value={valor}
+        onChange={aoDigitado}
+        placeholder={props.placeholder}
+      />
+    </div>
+  );
+};
+```
+
+## Uso dos Estados fora do componente
+
+Existe casos que o componente pai que precisa controlar os estados dos componentes filhos.
+Assim, o controle do estado ficará sob responsabilidade do componente pai.
+Exemplo abaixo:
+
+```jsx
+const [nome,setNome]=useState()
+
+// A propriedade aoAlterado ficara responsavel por setar o nome digitado para a variavel nome
+ <CampoTexto label="Nome" valor={nome} aoAlterado={nome => { setNome(nome) }} />
+
+ const CampoTexto = (props) => {
+  //aoDigitado tem a responsabilidade de chamar o metodo aoAlterado presente no props
+  const aoDigitado = (evento) => {
+    props.aoAlterado(evento.target.value)
+  }
+  return (
+    <div className="campo-texto">
+      <label>{props.label}</label>
+      <!-- O valor vem pelo props. E o controle de estado é atualizado a cada mudanca do conteudo do input através do onChange-->
+      <input value={props.valor} onChange={aoDigitado} required={props.obrigatorio} placeholder={props.placeholder} />
+    </div>
+  )
+}
+```
