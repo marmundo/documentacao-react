@@ -1,14 +1,14 @@
 import Card from '../Card'
 import './Time.css'
-const Time = (props) => {
+const Time = ({ time, membros }) => {
   return (
-    props.membros.length > 0 &&
+    membros.length > 0 &&
     <section className="time">
-      <h1>Time {props.time}</h1>
+      <h1>Time {time}</h1>
       <div className="cards">
-        {props.membros.map((membro, i) => {
+        {membros.map((membro, i) => {
           return (
-            <Card key={i} nome={membro.nome} endereco={membro.endereco} imagem="https://github.com/marmundo.png" />
+            <Card key={i} nome={membro.nome} cargo={membro.cargo} imagem="https://github.com/marmundo.png" />
           )
         }
         )}

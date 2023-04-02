@@ -7,7 +7,9 @@ import Time from './componentes/Time';
 function App() {
   const times = ["A", "B", "C"]
 
-  const [colaboradores, setColaboradores] = useState([])
+  const [colaboradores, setColaboradores] = useState([
+    { nome: "Marcelo Damasceno", cargo: "Professor", time: "A" }, { nome: "Marcelo Damasceno", cargo: "Professor", time: "A" }, { nome: "Marcelo Damasceno", cargo: "Professor", time: "A" }
+  ])
 
   const salvarColaborador = (colaborador) => {
     setColaboradores([...colaboradores, colaborador])
@@ -21,7 +23,7 @@ function App() {
         return < Time key={time} time={time} membros={colaboradoresPorTime} />
       }
       )}
-      <Rodape/>
+      <Rodape />
     </div>
   )
 }

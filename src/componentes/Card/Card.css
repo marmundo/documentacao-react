@@ -6,7 +6,7 @@
 }
 
 .card .cabecalho {
-  background-color:  #8c8888;
+  background-color: #8c8888;
   border-radius: 10px 10px 0px 0px;
   width: 100%;
   display: flex;
@@ -20,20 +20,20 @@
 }
 
 .card .rodape {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
   border-radius: 0px 0px 10px 10px;
-  padding-top: 35%;
-  width:100%;
+  padding-top: 60px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items:  center;
+  align-items: center;
 }
-.card .rodape > *{
-  margin: 5px;;
+.card .rodape > * {
+  margin: 5px;
 }
 .card .rodape #nome {
-  color: #6278F7;
+  color: #6278f7;
   font-size: 18px;
   line-height: 22px;
   font-weight: bold;
