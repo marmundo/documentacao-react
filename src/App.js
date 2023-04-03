@@ -60,6 +60,11 @@ function App() {
       return time;
     }));
   }
+  function deletarMembro(nome) {
+    console.log(nome, colaboradores[0].nome)
+    let membros = colaboradores.filter(membro => nome !== membro.nome)
+    setColaboradores(membros)
+  }
 
   return (
     <div className="App">
@@ -69,6 +74,7 @@ function App() {
       {times.map((time, indice) => {
         return < Time key={indice} time={time} membros={colaboradores.filter(item => item.time === time.nome)}
           mudarCor={mudarCor}
+          deletarMembro={deletarMembro}
         />
       }
       )}
