@@ -28,7 +28,7 @@ const Formulario = (props) => {
         <h1> Digite os Dados do Membro da sua Equipe</h1>
         <CampoTexto label="Nome" valor={nome} aoAlterado={nome => { setNome(nome) }} />
         <CampoTexto label="Cargo" valor={cargo} aoAlterado={cargo => { setCargo(cargo) }} />
-        <CampoTexto label="Imagem" valor={imagem} aoAlterado={imagem => { setImagem(imagem) }} />
+        <CampoTexto label="Imagem" valor={imagem} aoAlterado={imagem => { setImagem(imagem) }} placeholder="http://url/imagem.png" />
         <ListaSuspensa
           obrigatorio={true}
           label="Time"
