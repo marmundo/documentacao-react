@@ -6,7 +6,6 @@
 }
 
 .card .cabecalho {
-  background-color: #8c8888;
   border-radius: 10px 10px 0px 0px;
   width: 100%;
   display: flex;
@@ -39,7 +38,7 @@
   font-weight: bold;
 }
 
-.card .rodape #endereco {
+.card .rodape #cargo {
   font-size: 18px;
   line-height: 22px;
   color: #212121;

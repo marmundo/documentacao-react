@@ -6,18 +6,18 @@ import './Formulario.css';
 
 const Formulario = (props) => {
   const [nome, setNome] = useState('');
-  const [endereco, setEndereco] = useState('');
+  const [cargo, setCargo] = useState('');
   const [time, setTime] = useState('');
 
   const limparCampos = () => {
     setNome('')
-    setEndereco('')
+    setCargo('')
     setTime('')
   }
   const aoSalvar = (evento) => {
     evento.preventDefault()
-    let colaborador={ nome, endereco, time }
-   
+    let colaborador = { nome, cargo, time }
+
     props.aoColaboradorCadastrado(colaborador)
     limparCampos()
   }
@@ -26,9 +26,9 @@ const Formulario = (props) => {
       <form>
         <h1> Digite os Dados do Membro da sua Equipe</h1>
         <CampoTexto label="Nome" valor={nome} aoAlterado={nome => { setNome(nome) }} />
-        <CampoTexto label="Endereço" valor={endereco} aoAlterado={endereco => { setEndereco(endereco) }} />
+        <CampoTexto label="Cargo" valor={cargo} aoAlterado={cargo => { setCargo(cargo) }} />
         <ListaSuspensa
-        obrigatorio={true}
+          obrigatorio={true}
           label="Time"
           items={props.times}
           aoAlterado={(valor) => setTime(valor)}
