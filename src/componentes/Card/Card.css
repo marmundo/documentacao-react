@@ -16,12 +16,21 @@
   flex-direction: column;
   align-items: center;
 }
-.card img {
+.card .img {
   width: 50%;
   border-radius: 50%;
   position: relative;
   bottom: -50px;
   margin-top: -50px;
+}
+
+.card .noUser {
+  position: relative;
+  bottom: -40px;
+  border: 1pt solid black;
+  border-radius: 50%;
+  padding: 10%;
+  background-color: white;
 }
 
 .card .rodape {

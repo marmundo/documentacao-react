@@ -8,6 +8,7 @@ const Formulario = (props) => {
   const [nome, setNome] = useState('');
   const [cargo, setCargo] = useState('');
   const [time, setTime] = useState('');
+  const [imagem, setImagem] = useState('');
 
   const limparCampos = () => {
     setNome('')
@@ -27,6 +28,7 @@ const Formulario = (props) => {
         <h1> Digite os Dados do Membro da sua Equipe</h1>
         <CampoTexto label="Nome" valor={nome} aoAlterado={nome => { setNome(nome) }} />
         <CampoTexto label="Cargo" valor={cargo} aoAlterado={cargo => { setCargo(cargo) }} />
+        <CampoTexto label="Imagem" valor={imagem} aoAlterado={imagem => { setImagem(imagem) }} />
         <ListaSuspensa
           obrigatorio={true}
           label="Time"

@@ -45,7 +45,7 @@ function App() {
   ]);
 
   const [colaboradores, setColaboradores] = useState([
-    { nome: "Marcelo Damasceno", cargo: "Professor", time: times[0].nome }
+    { nome: "Marcelo Damasceno", cargo: "Professor", imagem: "https://github.com/marmundo.png", time: times[0].nome }
   ])
 
   const salvarColaborador = (colaborador) => {
@@ -61,7 +61,6 @@ function App() {
     }));
   }
   function deletarMembro(nome) {
-    console.log(nome, colaboradores[0].nome)
     let membros = colaboradores.filter(membro => nome !== membro.nome)
     setColaboradores(membros)
   }

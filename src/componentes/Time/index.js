@@ -14,7 +14,7 @@ const Time = ({ time, membros, mudarCor, deletarMembro }) => {
       <div className="cards">
         {membros.map((membro, i) => {
           return (
-            <Card cor={time.cor} key={i} nome={membro.nome} cargo={membro.cargo} imagem="https://github.com/marmundo.png" deletarMembro={deletarMembro} />
+            <Card cor={time.cor} key={i} nome={membro.nome} cargo={membro.cargo} imagem={membro.imagem} deletarMembro={deletarMembro} />
           )
         }
         )}
