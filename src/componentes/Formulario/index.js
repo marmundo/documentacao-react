@@ -16,12 +16,13 @@ const Formulario = (props) => {
     setNome('')
     setCargo('')
     setTime('')
+    setImagem('')
   }
 
   const navegar = useNavigate();
   const aoSalvar = (evento) => {
     evento.preventDefault()
-    let colaborador = { nome, cargo, time }
+    let colaborador = { nome, cargo, time, imagem }
 
     props.aoColaboradorCadastrado(colaborador)
     limparCampos()
