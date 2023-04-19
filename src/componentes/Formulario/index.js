@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 import Botao from "../Botao";
 import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
@@ -15,12 +17,16 @@ const Formulario = (props) => {
     setCargo('')
     setTime('')
   }
+
+  const navegar = useNavigate();
   const aoSalvar = (evento) => {
     evento.preventDefault()
     let colaborador = { nome, cargo, time }
 
     props.aoColaboradorCadastrado(colaborador)
     limparCampos()
+    navegar(-1)
+
   }
   return (
     <section className="formulario" onSubmit={aoSalvar}>
