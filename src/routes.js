@@ -1,10 +1,9 @@
 import { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
-import Rodape from './componentes/Rodape';
+import PaginaPadrao from './componentes/PaginaPadrao';
 import Time from './componentes/Time';
-
 function App() {
   const [times, setTimes] = useState([
     {
@@ -66,20 +65,24 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Banner />
-      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => salvarColaborador(colaborador)} />
-
-      {times.map((time, indice) => {
-        return < Time key={indice} time={time} membros={colaboradores.filter(item => item.time === time.nome)}
-          mudarCor={mudarCor}
-          deletarMembro={deletarMembro}
-        />
-      }
-      )}
-      <Rodape />
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PaginaPadrao />} >
+          <Route index element={times.map((time, indice) => {
+            return <Time
+              key={indice}
+              time={time}
+              membros={colaboradores.filter(item => item.time === time.nome)}
+              mudarCor={mudarCor}
+              deletarMembro={deletarMembro}
+            />
+          })} />
+          <Route path="cadastro" element={<Formulario
+            times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => salvarColaborador(colaborador)} />} />
+        </Route>
+      </Routes>
+    </BrowserRouter >
+  );
 }
 
 export default App;
