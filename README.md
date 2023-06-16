@@ -14,6 +14,9 @@ Anotações de estudo de React
 cd nome-do-projeto
 npm start
 ```
+### Instalando extensão com snippets
+
+Nome da extensão: ES7+ React/Redux/React-Native snippets
 
 ## Pastas com assets ( conteúdo estatico)
 
