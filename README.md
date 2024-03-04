@@ -68,7 +68,9 @@ Exemplo de CSS
 
 ## Utilizando propriedades nos componentes
 
-Exemplo de arquivo
+As propriedades (ou "props") em React são uma maneira de passar dados de componentes pais para componentes filhos. Elas são semelhantes aos argumentos de uma função em JavaScript. As props são imutáveis, o que significa que um componente filho não pode alterar as props que recebe do componente pai.
+
+Exemplo
 
 ```jsx
 const CampoTexto = (props) => {
@@ -85,7 +87,7 @@ export default CampoTexto;
 
 ## Utilizando componentes de componentes
 
-Um fomrulario é feito de vários campos. Então podemos ter um componente formulario com varios componentes campos. Segue exemplo de código
+Um formulario é feito de vários campos. Então podemos ter um componente formulario com varios componentes campos. Segue exemplo de código
 
 ```jsx
 import CampoTexto from "../CampoTexto";
