@@ -348,10 +348,37 @@ const Formulario = () => {
 export default Formulario;
 ```
 # Renderização Condicional
-O React renderiza condicionalmente usando uma expressao ternaria. P.ex
+A renderização condicional em React é um padrão que permite a você renderizar diferentes elementos ou componentes com base em uma condição. Isso é feito usando operadores JavaScript como if, else, operador ternário (? :) e operador lógico &&.
+
 
 ```jsx
 let itens=[]
 //Se o número de itens do array for maior que zero, o React renderiza <Componente/>. Isso através do operador lógico &&
 items.lenght>0 && <Component/>
+```
+
+```jsx
+...
+
+const Formulario = () => {
+  ...
+
+  const [nome, setNome] = useState();
+
+
+  return (
+    <>
+      ...
+      <CampoTextoEstado className="campo-texto" label="Nome" valor={nome} aoAlterado={nome=>setNome(nome)} />
+      ...
+
+    {nome && (  
+      <section className='dados'>
+        <p>Nome:{nome}</p>
+      </section>
+    )}
+    </>
+  );
+};
+export default Formulario;
 ```

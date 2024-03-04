@@ -21,11 +21,12 @@ const Formulario = () => {
         <BotaoAninhado>Clique Aqui</BotaoAninhado>
         <ListaSuspensa items={times} />
       </form>
-      
+  
     </section>
+    {nome &&(  
     <section className='dados'>
       <p>Nome:{nome}</p>
-    </section>
+    </section>)}
     </>
   );
 };
