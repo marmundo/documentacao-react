@@ -60,13 +60,10 @@ componentes/Banner/Banner.css
 Exemplo de CSS
 
 ```css
-.banner {
-  backgroud-color: #fff;
-}
-
-.banner img {
-  max-width: 100%;
-}
+  .banner{
+    display: flex;
+    justify-content: center;
+  }
 ```
 
 ## Utilizando propriedades nos componentes
