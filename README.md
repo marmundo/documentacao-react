@@ -24,11 +24,19 @@ Pasta public
 
 # Criando seu primeiro componente React
 
+Um componente React é uma unidade reutilizável e independente de interface do usuário que pode ser usada para construir a interface de um aplicativo React. Os componentes React são como blocos de construção que podem ser combinados para criar uma interface de usuário complexa.
+
+Cada componente React possui sua própria lógica e estado interno, e pode receber propriedades (props) como entrada e renderizar uma representação visual com base nesses dados. Os componentes podem ser compostos uns dentro dos outros para criar hierarquias de componentes, formando uma árvore de componentes.
+
+Os componentes React são escritos usando JavaScript (ou TypeScript) e JSX, uma extensão de sintaxe que permite escrever código HTML-like dentro do JavaScript. Essa combinação de JavaScript e JSX permite que você defina a estrutura e o comportamento do componente em um único arquivo.
+
+
+
 Por exemplo criar componente Banner
 Criar pasta dentro de src
 
 ```
-componentes/Banner/Banner.js
+componentes/Banner/Banner.jsx
 ```
 
 Exemplo de componente React
