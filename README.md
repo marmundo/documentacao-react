@@ -91,6 +91,14 @@ CampoTexto.propTypes = {
 export default CampoTexto;
 ```
 
+```css
+.campo-texto {
+    width: 20%;
+    display: flex;
+    justify-content: space-between
+}
+```
+
 ### Porque é necessário usar PropTypes?
 
 PropTypes é uma biblioteca em React que ajuda a definir o tipo de propriedade que um componente deve receber. Ela serve para garantir que o componente esteja recebendo os dados corretos, do tipo correto e na estrutura correta. Isso é especialmente útil em grandes aplicações onde os componentes podem ter muitas props.
@@ -111,20 +119,33 @@ Além disso, você pode marcar props como obrigatórias usando `.isRequired`
 Um formulario é feito de vários campos. Então podemos ter um componente formulario com varios componentes campos. Segue exemplo de código
 
 ```jsx
-import CampoTexto from "../CampoTexto";
-import "./Formulario.css";
+import CampoTexto from "../CampoTexto/CampoTexto";
+import "./Formulario.css"
 
 const Formulario = () => {
   return (
     <section className="formulario">
       <form>
-        <CampoTexto label="Nome" />
-        <CampoTexto label="Endereço" />
+        <CampoTexto className='campo-texto' label="Nome" />
+        <CampoTexto className='campo-texto' label="Endereço" />
       </form>
     </section>
   );
 };
 export default Formulario;
+```
+
+```css
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.formulario .campo-texto{
+    margin-bottom: 5%;
+}
 ```
 
 ## Utilizando atributos aninhados
