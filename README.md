@@ -6,7 +6,7 @@ Anotações de estudo de React
 
 ## Criando primeira aplicacao react
 
-`npx create-react-app <nome-do-projeto>`
+`npm create vite@latest my-react-app -- --template react`
 
 ### Executando projeto
 
