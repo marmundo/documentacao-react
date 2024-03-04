@@ -274,27 +274,78 @@ const CampoTexto = (props) => {
 
 Existe casos que o componente pai que precisa controlar os estados dos componentes filhos.
 Assim, o controle do estado ficará sob responsabilidade do componente pai.
+
+Gerenciar o estado fora de um componente específico em React é útil por várias razões:
+
+1. Compartilhamento de estado
+: Quando o estado precisa ser compartilhado entre vários componentes, pode ser mais fácil gerenciá-lo fora de um único componente. Isso evita o "prop drilling", onde o estado precisa ser passado de um componente pai para um componente filho através de props.
+
+2. Persistência de estado
+: Se você quiser que o estado persista mesmo quando um componente é desmontado e remontado, gerenciar o estado fora do componente pode ser útil. Isso pode ser importante para coisas como manter o estado do usuário após a atualização da página.
+
+3. Lógica de negócios complexa
+: Às vezes, a lógica de negócios relacionada ao estado pode ser complexa e envolver vários componentes. Nesses casos, pode ser mais fácil testar e manter essa lógica se ela estiver separada dos componentes da interface do usuário.
+
+4. Performance
+: Em aplicações grandes, atualizar o estado em um componente de nível superior pode levar a muitas renderizações desnecessárias em componentes filhos. Gerenciar o estado fora do componente pode ajudar a evitar isso.
+
 Exemplo abaixo:
 
 ```jsx
-const [nome,setNome]=useState()
+import PropTypes from 'prop-types';
 
-// A propriedade aoAlterado ficara responsavel por setar o nome digitado para a variavel nome
- <CampoTexto label="Nome" valor={nome} aoAlterado={nome => { setNome(nome) }} />
+const CampoTexto = (props) => {
+    const aoDigitado = (evento) => {
+        props.aoAlterado(evento.target.value);
+    };
+    return (
+        <div className="campo-texto">
+            <label>{props.label}</label>
+            <input
+                value={props.valor}
+                onChange={aoDigitado}
+                required={props.obrigatorio}
+                placeholder={props.placeholder}
+            />
+        </div>
+    );
+};
 
- const CampoTexto = (props) => {
-  //aoDigitado tem a responsabilidade de chamar o metodo aoAlterado presente no props
-  const aoDigitado = (evento) => {
-    props.aoAlterado(evento.target.value)
-  }
+CampoTexto.propTypes = {
+    placeholder: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    valor: PropTypes.string.isRequired,
+    obrigatorio: PropTypes.bool.isRequired,
+    aoAlterado: PropTypes.func.isRequired,
+};
+export default CampoTexto;
+```
+
+```jsx
+...
+
+const Formulario = () => {
+...
+
+  const [nome, setNome] = useState();
+
+
   return (
-    <div className="campo-texto">
-      <label>{props.label}</label>
-      <!-- O valor vem pelo props. E o controle de estado é atualizado a cada mudanca do conteudo do input através do onChange-->
-      <input value={props.valor} onChange={aoDigitado} required={props.obrigatorio} placeholder={props.placeholder} />
-    </div>
-  )
-}
+    <>
+    <section className="formulario">
+      <form className="form">
+        <CampoTextoEstado className="campo-texto" label="Nome" valor={nome} aoAlterado= {nome=>setNome(nome)} />
+        ...
+      </form>
+      
+    </section>
+    <section className='dados'>
+      <p>Nome:{nome}</p>
+    </section>
+    </>
+  );
+};
+export default Formulario;
 ```
 # Renderização Condicional
 O React renderiza condicionalmente usando uma expressao ternaria. P.ex
