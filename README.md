@@ -119,20 +119,24 @@ Além disso, você pode marcar props como obrigatórias usando `.isRequired`
 Um formulario é feito de vários campos. Então podemos ter um componente formulario com varios componentes campos. Segue exemplo de código
 
 ```jsx
+import BotaoAninhado from "../BotaoAninhado/BotaoAninhado";
 import CampoTexto from "../CampoTexto/CampoTexto";
-import "./Formulario.css"
+import ListaSuspensa from "../ListaSuspensa/ListaSuspensa";
+import "./Formulario.css";
 
 const Formulario = () => {
+
   return (
     <section className="formulario">
-      <form>
-        <CampoTexto className='campo-texto' label="Nome" />
-        <CampoTexto className='campo-texto' label="Endereço" />
+      <form className="form">
+        <CampoTexto className="campo-texto" label="Nome" />
+        <CampoTexto className="campo-texto" label="Endereço" />
       </form>
     </section>
   );
 };
 export default Formulario;
+
 ```
 
 ```css
@@ -152,6 +156,7 @@ export default Formulario;
 
 Você pode passar valores de atributos para um componente React passando como componentes filhos de componente como se fosse em elementos html.
 Desta forma, pode ser passados outros componentes, mídias e etc como atributos ao invés de apenas texto.
+
 Veja o exemplo abaixo.
 
 ```html
@@ -170,6 +175,20 @@ BotaoAninhado.propTypes = {
 };
 
 export default BotaoAninhado;
+```
+
+```jsx
+...
+  return (
+    <section className="formulario">
+      <form className="form">
+        ...
+        <BotaoAninhado>Clique Aqui</BotaoAninhado>
+      </form>
+    </section>
+  );
+};
+export default Formulario;
 
 ```
 
@@ -179,16 +198,47 @@ Normalmente é necessário gerar elementos em um componente baseado em itens, po
 Para isso é necessário usar um array de items e usar a função map para gerar os elementos baseado nesta lista. Ver exemplo abaixo.
 
 ```jsx
- const times=["A","B", "C"]
- //Observe que a variavel times é passada como atributo items no componente ListaSuspensa
- <ListaSuspensa label="Time" items={times} aoAlterado={(time)=>setTime(time)}/>
+/*Lista Suspensa*/
 
-//Os itens da lista suspensa é gerado baseado nos itens que pertence a variavel props
-<select name="select" onChange={aoSelecionado}>
-  {props.items.map((item) =>
-    <option value={item}>{item}</option>
-  )}
-</select>
+import PropTypes from 'prop-types';
+
+export default function ListaSuspensa(props) {
+    const aoSelecionado = (event) => {
+        alert(event.target.value)
+    };
+
+    return (
+        <select name="select" onChange={aoSelecionado}>
+        {props.items.map((item, index) =>
+            <option key={index} value={item}>{item}</option>
+        )}
+        </select>
+    )
+}
+
+ListaSuspensa.propTypes = {
+    items: PropTypes.array.isRequired,
+};
+
+```
+
+```jsx
+...
+
+const Formulario = () => {
+  const times=["A","B", "C"]
+
+  return (
+    <section className="formulario">
+      <form className="form">
+        ...
+        <ListaSuspensa items={times} />
+      </form>
+    </section>
+  );
+};
+export default Formulario;
+
 
 ```
 
