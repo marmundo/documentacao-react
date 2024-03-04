@@ -1,5 +1,8 @@
 .campo-texto {
-    width: 20%;
     display: flex;
     justify-content: space-between
+}
+
+.campo-texto label {
+    margin-right: 10px;
 }
