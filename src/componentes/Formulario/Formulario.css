@@ -1,0 +1,10 @@
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.formulario .campo-texto{
+    margin-bottom: 5%;
+}
