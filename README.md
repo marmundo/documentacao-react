@@ -159,9 +159,18 @@ Veja o exemplo abaixo.
 ```
 
 ```jsx
-const Botao = (props) => {
-  return <button>{props.children}</button>;
+import PropTypes from 'prop-types';
+
+const BotaoAninhado = (props) => {
+    return <button>{props.children}</button>;
 };
+
+BotaoAninhado.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
+export default BotaoAninhado;
+
 ```
 
 ## Geração de elementos em componentes
