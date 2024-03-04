@@ -73,17 +73,38 @@ As propriedades (ou "props") em React são uma maneira de passar dados de compon
 Exemplo
 
 ```jsx
-const CampoTexto = (props) => {
-  return (
-    <div className="campo-texto">
-      <label>{props.label}</label>
-      <input placeholder={props.placeholder} />
-    </div>
-  );
-};
+import PropTypes from 'prop-types';
 
+const CampoTexto = (props) => {
+        return (
+            <div className="campo-texto">
+                <label>{props.label}</label>
+                <input placeholder={props.placeholder} />
+            </div>
+        );
+    };
+
+CampoTexto.propTypes = {
+    placeholder: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+};
 export default CampoTexto;
 ```
+
+### Porque é necessário usar PropTypes?
+
+PropTypes é uma biblioteca em React que ajuda a definir o tipo de propriedade que um componente deve receber. Ela serve para garantir que o componente esteja recebendo os dados corretos, do tipo correto e na estrutura correta. Isso é especialmente útil em grandes aplicações onde os componentes podem ter muitas props.
+
+PropTypes oferece muitos validadores diferentes que podem ser usados para garantir que as props tenham o formato correto. Alguns exemplos incluem:
+
+* PropTypes.array
+* PropTypes.bool
+* PropTypes.func
+* PropTypes.number
+* PropTypes.object
+* PropTypes.string
+
+Além disso, você pode marcar props como obrigatórias usando `.isRequired`
 
 ## Utilizando componentes de componentes
 
