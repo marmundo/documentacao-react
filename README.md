@@ -250,7 +250,7 @@ Existe um hook chamado de useState que é utilizado como função fornecida pelo
 
 Abaixo um trecho de código com um componente 'Campo de Texto' com o valor do input sendo controlado pelo hook useState.
 
-```js
+```jsx
 const CampoTexto = (props) => {
   const [valor, setValor] = useState();
 
