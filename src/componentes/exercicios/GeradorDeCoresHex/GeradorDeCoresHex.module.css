@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.controles{
+    padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between; 
+}
+
+.cor{
+    width: 50%;
+    height: 25vh;
+    border-radius: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.flexContainer {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  .spaceBetween { 
+    justify-content: space-between; 
+  }  
+ 
+
+  .flexItem {
+    margin: 5px;
+    text-align: center;
+  }
