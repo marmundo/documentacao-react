@@ -382,3 +382,42 @@ const Formulario = () => {
 };
 export default Formulario;
 ```
+
+# Estilização de Componentes (CSS Modules)
+
+O CSS Modules é uma abordagem para estilizar componentes React que oferece escopo local para estilos CSS. Isso significa que as classes CSS definidas em um arquivo CSS Module são encapsuladas dentro do componente correspondente, evitando conflitos de nomes de classe em toda a aplicação.
+
+Os arquivos CSS que você deseja transformar em módulos devem ser nomeados com a extensão `.module.css`. Por exemplo, `MeuComponente.module.css`.
+
+Exemplo de JSX
+
+```jsx
+import React from 'react';
+import styles from './MeuComponente.module.css';
+
+const MeuComponente = () => {
+  return (
+    <div className={styles.container}>
+      <p className={styles.texto}>Meu componente estilizado com CSS Modules</p>
+    </div>
+  );
+}
+
+export default MeuComponente;
+```
+
+Exemplo de módulo CSS
+
+```css
+/* MeuComponente.module.css */
+
+.container {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.texto {
+  color: #333;
+  font-size: 18px;
+}
+```
