@@ -347,6 +347,10 @@ const Formulario = () => {
 };
 export default Formulario;
 ```
+Clique [aqui](estados.md) para saber mais sobre estados em React.
+
+Clique [aqui](https://pt-br.react.dev/learn/responding-to-events) para a documentação oficial que trata de estados em React.
+
 # Renderização Condicional
 A renderização condicional em React é um padrão que permite a você renderizar diferentes elementos ou componentes com base em uma condição. Isso é feito usando operadores JavaScript como if, else, operador ternário (? :) e operador lógico &&.
 
