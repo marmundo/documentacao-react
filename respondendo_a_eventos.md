@@ -116,6 +116,8 @@ export default function Toolbar() {
     </form>
   );
 }
+
 ```
 
-## Eventos Sintéticos
+
+# [Exercícios](https://pt-br.react.dev/learn/responding-to-events#challenges)
