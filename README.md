@@ -241,7 +241,8 @@ export default Formulario;
 
 
 ```
-
+# Eventos em React
+A documentação mais detalhada está [aqui](respondendo_a_eventos.md)
 # Controle de Estados
 
 O React utiliza os estados para manter o ciclo de vida de atualização dos valores e comportamento dos componentes React.
