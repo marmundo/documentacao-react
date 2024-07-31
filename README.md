@@ -12,7 +12,8 @@ Anotações de estudo de React
 
 ```bash
 cd nome-do-projeto
-npm start
+npm i
+npm run dev
 ```
 ### Instalando extensão com snippets
 
