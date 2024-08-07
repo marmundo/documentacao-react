@@ -5,9 +5,11 @@
  * O componente deve ter um input para visualizar a cor em hexadecimal.
  */
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 import styles from "./GeradorDeCoresHex.module.css";
 
+// function GeradorDeCoresHex({ cor, aoAlterado }) {
 function GeradorDeCoresHex() {
   const [cor, setCor] = useState("#FFFFFF");
 
@@ -15,6 +17,7 @@ function GeradorDeCoresHex() {
     const corRandomica =
       "#" + Math.floor(Math.random() * 16777215).toString(16);
     setCor(corRandomica);
+    // aoAlterado(corRandomica);
   };
 
   const copiarCor = () => {
@@ -23,17 +26,27 @@ function GeradorDeCoresHex() {
 
   return (
     <div className={styles.container}>
-   
       <div className={styles.controles}>
-        <button className={styles.flexItem} onClick={gerarCorRandomica}>Gerar Cor</button>
-        <button className={styles.flexItem} onClick={copiarCor}>Copiar Cor</button>
+        <button className={styles.flexItem} onClick={gerarCorRandomica}>
+          Gerar Cor
+        </button>
+        <button className={styles.flexItem} onClick={copiarCor}>
+          Copiar Cor
+        </button>
         <input className={styles.flexItem} type="text" value={cor} readOnly />
       </div>
-      <div className={`${styles.cor} ${styles.container}` }
+      <div
+        className={`${styles.cor} ${styles.container}`}
         style={{ backgroundColor: cor }}
-      > HEX: {cor}</div>
+      >
+        {" "}
+        HEX: {cor}
+      </div>
     </div>
   );
 }
-
+// GeradorDeCoresHex.propTypes = {
+//   cor: PropTypes.string.isRequired,
+//   aoAlterado: PropTypes.func.isRequired,
+// };
 export default GeradorDeCoresHex;
