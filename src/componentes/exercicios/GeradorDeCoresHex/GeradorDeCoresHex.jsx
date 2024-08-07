@@ -5,7 +5,7 @@
  * O componente deve ter um input para visualizar a cor em hexadecimal.
  */
 import { useState } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 import styles from "./GeradorDeCoresHex.module.css";
 

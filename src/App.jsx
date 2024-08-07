@@ -3,6 +3,7 @@ import Banner from "./componentes/Banner/Banner.jsx";
 import Formulario from "./componentes/Formulario/Formulario.jsx";
 import Imagem from "./componentes/exercicios/Imagem/Imagem.jsx";
 import GeradorDeCoresHex from "./componentes/exercicios/GeradorDeCoresHex/GeradorDeCoresHex.jsx";
+import Todo from "./componentes/exercicios/TODO/Todo.jsx";
 
 function App() {
   //   const [cor, setCor] = useState("#FFFFFF");
@@ -14,6 +15,7 @@ function App() {
       <Imagem url="https://placehold.co/200x200" legenda="Legenda" />
       {/* <GeradorDeCoresHex cor={cor} aoAlterado={(cor) => setCor(cor)} /> */}
       <GeradorDeCoresHex />
+      <Todo />
     </div>
   );
 }
