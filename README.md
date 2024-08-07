@@ -12,7 +12,8 @@ Anotações de estudo de React
 
 ```bash
 cd nome-do-projeto
-npm start
+npm i
+npm run dev
 ```
 ### Instalando extensão com snippets
 
@@ -241,7 +242,8 @@ export default Formulario;
 
 
 ```
-
+# Eventos em React
+A documentação mais detalhada está [aqui](respondendo_a_eventos.md)
 # Controle de Estados
 
 O React utiliza os estados para manter o ciclo de vida de atualização dos valores e comportamento dos componentes React.
@@ -347,6 +349,10 @@ const Formulario = () => {
 };
 export default Formulario;
 ```
+Clique [aqui](estados.md) para saber mais sobre estados em React.
+
+Clique [aqui](https://pt-br.react.dev/learn/responding-to-events) para a documentação oficial que trata de estados em React.
+
 # Renderização Condicional
 A renderização condicional em React é um padrão que permite a você renderizar diferentes elementos ou componentes com base em uma condição. Isso é feito usando operadores JavaScript como if, else, operador ternário (? :) e operador lógico &&.
 
