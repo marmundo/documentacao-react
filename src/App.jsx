@@ -4,7 +4,8 @@
 // import Imagem from "./componentes/exercicios/Imagem/Imagem.jsx";
 // import GeradorDeCoresHex from "./componentes/exercicios/GeradorDeCoresHex/GeradorDeCoresHex.jsx";
 // import Todo from "./componentes/exercicios/TODO/Todo.jsx";
-import StateHook from "./componentes/exercicios/hooks/StateHook/StateHook.jsx";
+// import StateHook from "./componentes/exercicios/hooks/StateHook/StateHook.jsx";
+import EffectHook from "./componentes/exercicios/hooks/EffectHook/EffectHook.jsx";
 
 function App() {
   //   const [cor, setCor] = useState("#FFFFFF");
@@ -17,7 +18,8 @@ function App() {
       {/* <GeradorDeCoresHex cor={cor} aoAlterado={(cor) => setCor(cor)} /> */}
       {/* <GeradorDeCoresHex /> */}
       {/* <Todo /> */}
-      <StateHook />
+      {/* <StateHook /> */}
+      <EffectHook />
     </div>
   );
 }
