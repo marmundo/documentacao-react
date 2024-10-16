@@ -427,3 +427,38 @@ Exemplo de módulo CSS
   font-size: 18px;
 }
 ```
+# Props Drilling
+
+Props drilling é um padrão comum em React, onde as props (propriedades) são passadas de um componente pai para um ou mais componentes filhos e, às vezes, até para níveis mais profundos da hierarquia de componentes. Esse processo envolve o repasse de dados ou funções de um componente pai para seus descendentes, mesmo que alguns dos componentes intermediários não precisem diretamente desses dados ou funções.
+
+Como funciona o props drilling:
+O componente que possui o estado ou função necessária (componente pai) passa as informações como props para seus componentes filhos diretos.
+Se o componente filho não precisa diretamente dessas props, ele simplesmente repassa as props para seus filhos, continuando esse processo até o componente que realmente necessita.
+Exemplo:
+Imagine uma estrutura de três componentes: App (componente pai), ComponentA (filho de App), e ComponentB (filho de ComponentA). Se App tem algum dado que ComponentB precisa, ele terá que passar esse dado por meio de ComponentA, mesmo que ComponentA não use esse dado diretamente.
+
+```jsx
+// App.js (Componente Pai)
+const App = () => {
+  const data = "Important Data"; // estado ou dado
+  return <ComponentA data={data} />;
+};
+
+// ComponentA.js
+const ComponentA = ({ data }) => {
+  return <ComponentB data={data} />; // repassa as props para ComponentB
+};
+
+// ComponentB.js
+const ComponentB = ({ data }) => {
+  return <div>{data}</div>; // finalmente usa as props
+};
+```
+## Problemas com props drilling
+
+Manutenção: Conforme a aplicação cresce, o props drilling pode dificultar a manutenção do código, já que muitos componentes intermediários passam props desnecessárias.
+Complexidade: Pode tornar o código complexo e confuso, especialmente quando há muitos níveis de componentes.
+
+## Alternativas ao props drilling
+
+Context API: O React oferece a Context API para evitar o props drilling, permitindo que dados sejam acessados diretamente pelos componentes que precisam, sem ter que passá-los manualmente por todos os níveis intermediários.
